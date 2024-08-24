@@ -11,7 +11,7 @@ export default function Navbar(props) {
       data-bs-theme={props.mode}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           {props.title}
         </Link>
         <button

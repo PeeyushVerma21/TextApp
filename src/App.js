@@ -109,9 +109,9 @@ function App() {
                   heading="Enter Your Text"
                   mode={mode}
                 />
-              }
-            ></Route>
-          </Routes>
+               }
+             ></Route>
+           </Routes>
         </div>
       </BrowserRouter>
     </>

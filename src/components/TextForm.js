@@ -18,10 +18,7 @@ export default function TextForm(props) {
   };
 
   const handleCopy = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Text Copied", "success");
   };
 
@@ -33,7 +30,7 @@ export default function TextForm(props) {
 
   const wordCount = (text) => {
     let c = 0;
-    let b = text.trim().split(" ");
+    let b = text.trim().split(/\s+/);
     if (b[b.length - 1] === "") {
       c = b.length - 1;
     } else {
@@ -133,7 +130,7 @@ export default function TextForm(props) {
         <p>
           {wordCount(text)} words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").filter((element) =>{return element.length!==0}).length} Minutes read</p>
+        <p>{0.008 * text.split(/\s+/).filter((element) =>{return element.length!==0}).length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to Preview"}</p>
       </div>
