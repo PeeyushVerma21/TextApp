@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -26,7 +26,7 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = "#042743";
       document.body.style.color = "white";
       let elements = document.getElementsByClassName("cbtn");
       for (let i = 0; i < elements.length; i++) {
@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         {/* <Navbar title = "TextApp" aboutText = "About"/> */}
         <Navbar
           title="TextApp"
@@ -99,21 +99,21 @@ function App() {
         />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes>
-            <Route exact path="/About" element={<About />}></Route>
+          <Routes>
+            <Route exact path="/About" element={<About mode = {mode} />}></Route>
             <Route
               exact path="/"
-              element={ */}
+              element={
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter the text to analyze"
+                  heading="Enter Your Text"
                   mode={mode}
                 />
-              {/* }
+              }
             ></Route>
-          </Routes> */}
+          </Routes>
         </div>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }

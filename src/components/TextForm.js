@@ -14,7 +14,6 @@ export default function TextForm(props) {
     props.showAlert("Converted to Lowercase", "success");
   };
   const handleOnChange = (event) => {
-    console.log("On change");
     setText(event.target.value);
   };
 
@@ -22,6 +21,7 @@ export default function TextForm(props) {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Text Copied", "success");
   };
 
@@ -65,7 +65,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "black",
+              backgroundColor: props.mode === "light" ? "white" : "#13466e",
               color: props.mode === "light" ? "black" : "white",
             }}
             id="myBox"
@@ -74,6 +74,7 @@ export default function TextForm(props) {
         </div>
         <button
           className="btn cbtn mx-2 my-2"
+          disabled={text.length===0}
           style={{
             backgroundColor: props.mode === "light" ? "black" : "white",
             color: props.mode === "light" ? "white" : "black",
@@ -84,6 +85,7 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn cbtn mx-2 my-2"
+          disabled={text.length===0}
           style={{
             backgroundColor: props.mode === "light" ? "black" : "white",
             color: props.mode === "light" ? "white" : "black",
@@ -94,6 +96,7 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn cbtn mx-2 my-2"
+          disabled={text.length===0}
           style={{
             backgroundColor: props.mode === "light" ? "black" : "white",
             color: props.mode === "light" ? "white" : "black",
@@ -104,6 +107,7 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn cbtn mx-2 my-2"
+          disabled={text.length===0}
           style={{
             backgroundColor: props.mode === "light" ? "black" : "white",
             color: props.mode === "light" ? "white" : "black",
@@ -114,6 +118,7 @@ export default function TextForm(props) {
         </button>
         <button
           className="btn cbtn mx-2 my-2"
+          disabled={text.length===0}
           style={{
             backgroundColor: props.mode === "light" ? "black" : "white",
             color: props.mode === "light" ? "white" : "black",
@@ -128,9 +133,9 @@ export default function TextForm(props) {
         <p>
           {wordCount(text)} words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>{0.008 * text.split(" ").filter((element) =>{return element.length!==0}).length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Nothing to Preview"}</p>
       </div>
     </>
   );
