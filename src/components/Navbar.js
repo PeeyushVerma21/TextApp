@@ -71,7 +71,7 @@ export default function Navbar(props) {
               Enable Dark Mode
             </label>
           </div>
-          <div className="form-check mx-3">
+          {/* <div className="form-check mx-3">
             <input
               className="form-check-input"
               onClick={props.toggleColor}
@@ -106,7 +106,7 @@ export default function Navbar(props) {
             <label className="form-check-label" htmlFor="flexRadioDefault3">
               Blue
             </label>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

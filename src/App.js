@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
-  const [colorMode, setColorMode] = useState("red");
+  // const [colorMode, setColorMode] = useState("red");
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -47,45 +47,45 @@ function App() {
     }
   };
 
-  const toggleColor = () => {
-    if (
-      colorMode !== "Red" &&
-      document.getElementById("flexRadioDefault1").checked
-    ) {
-      setColorMode("red");
-      document.body.style.backgroundColor = "red";
-      document.body.style.color = "black";
-      let elements = document.getElementsByClassName("cbtn");
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = "black";
-        elements[i].style.color = "white";
-      }
-    } else if (
-      colorMode !== "green" &&
-      document.getElementById("flexRadioDefault2").checked
-    ) {
-      setColorMode("green");
-      document.body.style.backgroundColor = "green";
-      document.body.style.color = "black";
-      let elements = document.getElementsByClassName("cbtn");
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = "red";
-        elements[i].style.color = "white";
-      }
-    } else if (
-      colorMode !== "blue" &&
-      document.getElementById("flexRadioDefault3").checked
-    ) {
-      setColorMode("blue");
-      document.body.style.backgroundColor = "blue";
-      document.body.style.color = "black";
-      let elements = document.getElementsByClassName("cbtn");
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = "lightblue";
-        elements[i].style.color = "white";
-      }
-    }
-  };
+  // const toggleColor = () => {
+  //   if (
+  //     colorMode !== "Red" &&
+  //     document.getElementById("flexRadioDefault1").checked
+  //   ) {
+  //     setColorMode("red");
+  //     document.body.style.backgroundColor = "red";
+  //     document.body.style.color = "black";
+  //     let elements = document.getElementsByClassName("cbtn");
+  //     for (let i = 0; i < elements.length; i++) {
+  //       elements[i].style.backgroundColor = "black";
+  //       elements[i].style.color = "white";
+  //     }
+  //   } else if (
+  //     colorMode !== "green" &&
+  //     document.getElementById("flexRadioDefault2").checked
+  //   ) {
+  //     setColorMode("green");
+  //     document.body.style.backgroundColor = "green";
+  //     document.body.style.color = "black";
+  //     let elements = document.getElementsByClassName("cbtn");
+  //     for (let i = 0; i < elements.length; i++) {
+  //       elements[i].style.backgroundColor = "red";
+  //       elements[i].style.color = "white";
+  //     }
+  //   } else if (
+  //     colorMode !== "blue" &&
+  //     document.getElementById("flexRadioDefault3").checked
+  //   ) {
+  //     setColorMode("blue");
+  //     document.body.style.backgroundColor = "blue";
+  //     document.body.style.color = "black";
+  //     let elements = document.getElementsByClassName("cbtn");
+  //     for (let i = 0; i < elements.length; i++) {
+  //       elements[i].style.backgroundColor = "lightblue";
+  //       elements[i].style.color = "white";
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -95,7 +95,7 @@ function App() {
           title="TextApp"
           mode={mode}
           toggleMode={toggleMode}
-          toggleColor={toggleColor}
+          // toggleColor={toggleColor}
         />
         <Alert alert={alert} />
         <div className="container my-3">
